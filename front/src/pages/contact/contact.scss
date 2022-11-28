@@ -1,0 +1,61 @@
+@import 'variables';
+@import 'mixins';
+
+
+.contact{
+  min-height: 65vh;
+  width: 100%;
+  @include flex-center();
+  background-image: url(../../images/jardin.jpg);
+  background-size: cover;
+  background-position: center;
+  .informations{
+		background-color: $offwhite;
+		height: 90%;
+		width: 70%;
+		color: $primary;
+		padding: 3%;
+		text-align:left;
+		h1{
+			font-size: 4rem;
+			color: $accent;
+			margin-bottom: 50px;
+		}
+		ul{
+			margin-top: 30px;
+			p{
+				text-indent: 30px;
+			}
+		}
+		li{
+			margin-bottom: 40px;
+			.renseignement{
+				margin: 15px 0px;
+			}
+		}
+  }
+}	
+
+@media(max-width: $phone){
+	.contact{
+    min-height: 100vh;
+    .informations{
+			margin: auto;
+			height: 100%;
+			width: 90%;
+			h1{
+				font-size: 3rem;
+			}
+			h3{
+				color: $accent;
+			}
+			ul{
+				margin-top: 30px;
+				p{
+					text-indent: 30px;
+				}
+			}
+    }
+	} 
+}
+

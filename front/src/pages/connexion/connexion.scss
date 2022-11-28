@@ -1,0 +1,29 @@
+@import 'mixins';
+@import 'variables';
+
+.connexion{
+    background-image: url("../../images/jardin.jpg");
+    background-size: cover;
+    min-height: 65vh;
+    min-width: 100%;
+    @include flex-center();
+    &__form{
+	background-color: $offwhite;
+	height: 30vh;
+	width: 20vw;
+	@include flex-center();
+	justify-content: space-evenly;
+	flex-direction: column;
+	div{
+	    @include flex-center();
+	    flex-direction: column;
+	}
+	label{
+	    color: $accent;
+	}
+	.disclaimer{
+	    color: red;
+	    width: 80%;
+	}
+    }
+}

@@ -1,0 +1,9 @@
+*node_modules*
+.log/
+*/.env
+front/public/*.pdf
+*.png
+*.ico
+*.jpg
+*.jpeg
+back/insert-data.sql

@@ -1,0 +1,32 @@
+@import "mixins";
+@import "variables";
+
+.mentions{
+    min-height: 65vh;
+    width: 100%;
+    background-image: url(../../images/jardin.jpg);
+    background-size: cover;
+    background-position: center;
+    @include flex-center();
+    .informations{
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	background-color: $offwhite;
+	width: 50%;
+	min-height: 300px;;
+	color: white;
+	padding: 2%;
+	h1{
+	    color: $accent;
+	    font-size: 2rem;
+	}
+	.section{
+	    color: $primary;
+	    margin-left: 10%;
+	    h2{
+		font-size: 1.5rem;
+	    }
+	}
+    }
+}

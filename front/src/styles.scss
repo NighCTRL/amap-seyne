@@ -1,0 +1,16 @@
+@import 'mixins';
+
+.App{
+    min-width: 100vw;
+    min-height: 100vh;
+    @include flex-center();
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+
+}
+
+.page{
+    flex: 1;
+    width: 100%;
+}
