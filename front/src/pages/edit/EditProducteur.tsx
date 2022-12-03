@@ -14,7 +14,7 @@ const EditProducteur: React.FC = () => {
 
   const { id } = useParams()
 
-  const [{ prod_id, prod_loca, prod_name, prod_pres, prod_type }, setProducteur] =
+  const [ producteur, setProducteur] =
     useState<ProducteurData>({
       prod_id: 2,
       prod_loca: '',
@@ -48,21 +48,20 @@ const EditProducteur: React.FC = () => {
     e.preventDefault()
     const url = `${process.env.REACT_APP_NODE_URL}/edit/producteurs/${id}`
     console.log(url)
-    const res = await axios
+    await axios
       .post(
         `${process.env.REACT_APP_NODE_URL}/edit/producteurs/${id}`,
         {
-          name: prod_name,
-          type: prod_type,
-          loca: prod_loca,
-          pres: prod_pres,
+          name: producteur.prod_name,
+          type: producteur.prod_type,
+          loca: producteur.prod_loca,
+          pres: producteur.prod_pres,
         },
         {
           headers: { Authorization: `Bearer ${localStorage.getItem('accessToken')}` },
         },
       )
-      .then((res) => {
-        console.log('ça marche au moins')
+      .then(() => {
         toast.success('modifications enregistrées')
         navigate('/producteurs')
       })
@@ -77,57 +76,45 @@ const EditProducteur: React.FC = () => {
       <form className='editProducteur__form' onSubmit={handleSubmit}>
         <input
           className='input'
-          value={prod_name}
+          value={producteur.prod_name}
           name='prod_name'
-          onChange={(e) =>
+          onChange={(e) => 
             setProducteur?.({
-              prod_id,
-              prod_name: e.target.value,
-              prod_type,
-              prod_loca,
-              prod_pres,
+              ...producteur,
+              prod_name: e.target.value
             })
           }
         />
         <input
           className='input'
-          value={prod_type}
+          value={producteur.prod_type}
           name='prod_type'
           onChange={(e) =>
             setProducteur?.({
-              prod_id,
-              prod_name,
-              prod_type: e.target.value,
-              prod_loca,
-              prod_pres,
+              ...producteur,
+              prod_type: e.target.value
             })
           }
         />
         <input
           className='input'
-          value={prod_loca}
+          value={producteur.prod_loca}
           onChange={(e) =>
             setProducteur?.({
-              prod_id,
-              prod_name,
-              prod_type,
-              prod_loca: e.target.value,
-              prod_pres,
+              ...producteur,
+              prod_loca: e.target.value
             })
           }
         />
         <textarea
           className='input'
-          value={prod_pres}
+          value={producteur.prod_pres}
           cols={50}
           rows={20}
           onChange={(e) =>
             setProducteur?.({
-              prod_id,
-              prod_name,
-              prod_type,
-              prod_loca,
-              prod_pres: e.target.value,
+              ...producteur,
+              prod_pres: e.target.value
             })
           }
         />
