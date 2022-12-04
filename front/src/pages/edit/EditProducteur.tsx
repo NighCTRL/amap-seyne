@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router'
 import ProducteurData from '../../types/types'
@@ -14,14 +13,13 @@ const EditProducteur: React.FC = () => {
 
   const { id } = useParams()
 
-  const [ producteur, setProducteur] =
-    useState<ProducteurData>({
-      prod_id: 2,
-      prod_loca: '',
-      prod_name: '',
-      prod_pres: '',
-      prod_type: '',
-    })
+  const [producteur, setProducteur] = useState<ProducteurData>({
+    prod_id: 2,
+    prod_loca: '',
+    prod_name: '',
+    prod_pres: '',
+    prod_type: '',
+  })
 
   const getProducteur = async () => {
     try {
@@ -78,10 +76,10 @@ const EditProducteur: React.FC = () => {
           className='input'
           value={producteur.prod_name}
           name='prod_name'
-          onChange={(e) => 
+          onChange={(e) =>
             setProducteur?.({
               ...producteur,
-              prod_name: e.target.value
+              prod_name: e.target.value,
             })
           }
         />
@@ -92,7 +90,7 @@ const EditProducteur: React.FC = () => {
           onChange={(e) =>
             setProducteur?.({
               ...producteur,
-              prod_type: e.target.value
+              prod_type: e.target.value,
             })
           }
         />
@@ -102,7 +100,7 @@ const EditProducteur: React.FC = () => {
           onChange={(e) =>
             setProducteur?.({
               ...producteur,
-              prod_loca: e.target.value
+              prod_loca: e.target.value,
             })
           }
         />
@@ -114,7 +112,7 @@ const EditProducteur: React.FC = () => {
           onChange={(e) =>
             setProducteur?.({
               ...producteur,
-              prod_pres: e.target.value
+              prod_pres: e.target.value,
             })
           }
         />
