@@ -1,26 +1,26 @@
 import './amap.scss'
-import vegetables from '../../images/vegetables.jpg'
+import vegetables from '../../images/vegetables.webp'
 
 const Amap = () => {
   const state = [
-    '20 ans AMAP.jpeg',
-    'apero serre.jpeg',
-    'apero.jpeg',
-    'basilic.jpeg',
-    'champ de courge.jpeg',
-    'champs.jpeg',
-    'courge.jpeg',
-    'distribution septembre.jpeg',
-    'fromage chevre.jpeg',
-    'pois gourmand.jpeg',
-    'poivrons.jpeg',
-    'recolte pdt.jpeg',
-    'serre avec chien.jpeg',
-    'serre tomates.jpeg',
-    'tableau permanence.jpeg',
-    'tournesol abeille.jpeg',
-    'tri PDT.jpeg',
-    '20 ans AMAP.jpeg',
+    '20 ans AMAP.webp',
+    'apero serre.webp',
+    'apero.webp',
+    'basilic.webp',
+    'champ de courge.webp',
+    'champs.webp',
+    'courge.webp',
+    'distribution septembre.webp',
+    'fromage chevre.webp',
+    'pois gourmand.webp',
+    'poivrons.webp',
+    'recolte pdt.webp',
+    'serre avec chien.webp',
+    'serre tomates.webp',
+    'tableau permanence.webp',
+    'tournesol abeille.webp',
+    'tri PDT.webp',
+    '20 ans AMAP.webp',
   ]
   return (
     <div className='amap'>

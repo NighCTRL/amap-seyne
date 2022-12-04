@@ -1,9 +1,9 @@
 import './recettes.scss'
 
-import carottesPesto from '../../images/recettes/carottes-pesto.jpg'
-import choukaleCurry from '../../images/recettes/chou-kale-curry.jpg'
-import fèves from '../../images/recettes/fèves.jpg'
-import poireaux from '../../images/recettes/poireaux-guacamole.jpg'
+import carottesPesto from '../../images/recettes/carottes-pesto.webp'
+import choukaleCurry from '../../images/recettes/chou-kale-curry.webp'
+import fèves from '../../images/recettes/fèves.webp'
+import poireaux from '../../images/recettes/poireaux-guacamole.webp'
 
 const Recettes = () => {
   return (

@@ -4,7 +4,7 @@
 .editProducteur{
     height: 65vh;
     width: 100%;
-    background-image: url('../../images/prods-header.jpg');
+    background-image: url('../../images/prods-header.webp');
     @include flex-center;
     &__form{
 	background-color: rgba(87, 149, 172, 0.3);

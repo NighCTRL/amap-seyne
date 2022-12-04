@@ -1,9 +1,9 @@
 import './livraisons.scss'
-import légumes from '../../images/légumes.jpg'
-import fromages from '../../images/fromages.jpg'
-import clémentines from '../../images/légumes.jpg'
-import oeufs from '../../images/oeufs.jpg'
-import poires from '../../images/poires.jpg'
+import légumes from '../../images/légumes.webp'
+import fromages from '../../images/fromages.webp'
+import clémentines from '../../images/légumes.webp'
+import oeufs from '../../images/oeufs.webp'
+import poires from '../../images/poires.webp'
 
 const Livraisons = () => {
   return (

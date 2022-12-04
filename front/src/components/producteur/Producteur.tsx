@@ -18,7 +18,7 @@ const Producteur: React.FC<Props['data']> = ({
   return (
     <div className='producteur'>
       <div className='producteur__image'>
-        <img src={require(`../../images/producteurs/${prod_id}.jpg`)} alt='placeholder' />
+        <img src={require(`../../images/producteurs/${prod_id}.webp`)} alt='placeholder' />
       </div>
       <div className='producteur__text'>
         <h1>{prod_name}</h1>
