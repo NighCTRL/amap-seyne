@@ -6,6 +6,8 @@ import 'react-toastify/dist/ReactToastify.css'
 import { useNavigate } from 'react-router-dom'
 import './editProducteur.scss'
 import axios from 'axios'
+import ReactQuill from "react-quill";
+import "react-quill/dist/quill.snow.css";
 
 const EditProducteur: React.FC = () => {
   const [loading, setLoading] = useState(true)
@@ -69,6 +71,13 @@ const EditProducteur: React.FC = () => {
       })
   }
 
+  const modules = {
+    toolbar: [
+      [{ 'header': [1, 2, 3] }],
+      ['bold', 'italic', 'underline', {'list': 'ordered'}, {'list': 'bullet'}, {'indent': '-1'}, {'indent': '+1'}],
+    ],
+  }
+
   return (
     <div className='editProducteur'>
       <form className='editProducteur__form' onSubmit={handleSubmit}>
@@ -104,18 +113,10 @@ const EditProducteur: React.FC = () => {
             })
           }
         />
-        <textarea
-          className='input'
-          value={producteur.prod_pres}
-          cols={50}
-          rows={20}
-          onChange={(e) =>
-            setProducteur?.({
-              ...producteur,
-              prod_pres: e.target.value,
-            })
-          }
-        />
+        <ReactQuill value={producteur.prod_pres} modules={modules} onChange={(value) => setProducteur?.({
+          ...producteur,
+          prod_pres: value
+        })} />
         <button type='submit'>valider la modification</button>
       </form>
     </div>
