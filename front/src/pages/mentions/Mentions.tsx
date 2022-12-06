@@ -16,8 +16,7 @@ const Mentions = () => {
         <div className='section'>
           <h2>Code source </h2>
           <p>
-            Ce site est fièrement libre et open-source. Le code est hebergé sur{' '}
-            <a href='https://git.sr.ht/~nigh/amap-seyne'>sourcehut</a> sous la licence GPL V3.
+            Ce site est fièrement libre et open-source. Le code est hebergé sur <a href='https://git.sr.ht/~nigh/amap-seyne'>Sourcehut</a> ou <a href='https://github.com/NighCTRL/amap-seyne'>Github</a> sous la licence GPL V3.
           </p>
         </div>
       </div>
