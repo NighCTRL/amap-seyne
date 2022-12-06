@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import { useParams } from 'react-router'
 import ProducteurData from '../../types/types'
 import { toast } from 'react-toastify'
@@ -6,12 +6,14 @@ import 'react-toastify/dist/ReactToastify.css'
 import { useNavigate } from 'react-router-dom'
 import './editProducteur.scss'
 import axios from 'axios'
-import ReactQuill from "react-quill";
+import ReactQuill, { Quill } from "react-quill";
 import "react-quill/dist/quill.snow.css";
 
 const EditProducteur: React.FC = () => {
   const [loading, setLoading] = useState(true)
   const navigate = useNavigate()
+
+  let reactQuillRef: ReactQuill | null = null;
 
   const { id } = useParams()
 
@@ -46,6 +48,11 @@ const EditProducteur: React.FC = () => {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
+    const htmlQuill = reactQuillRef?.getEditorContents()
+    setProducteur?.({
+      ...producteur,
+      prod_pres: JSON.stringify(htmlQuill)
+    })
     const url = `${process.env.REACT_APP_NODE_URL}/edit/producteurs/${id}`
     console.log(url)
     await axios
@@ -113,7 +120,9 @@ const EditProducteur: React.FC = () => {
             })
           }
         />
-        <ReactQuill value={producteur.prod_pres} modules={modules} onChange={(value) => setProducteur?.({
+        <ReactQuill ref={(el) => {
+          reactQuillRef = el;
+        }} value={producteur.prod_pres} modules={modules} onChange={(value) => setProducteur?.({
           ...producteur,
           prod_pres: value
         })} />

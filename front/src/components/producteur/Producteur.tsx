@@ -4,6 +4,7 @@ import { BsFillPencilFill } from 'react-icons/bs'
 import { ConnexionContext } from '../../store/ConnexionContext'
 import './producteur.scss'
 import { Link } from 'react-router-dom'
+import parse from 'html-react-parser';
 
 interface Props {
   data: ProducteurData
@@ -15,6 +16,7 @@ const Producteur: React.FC<Props['data']> = ({
   prod_pres,
 }: Props['data']) => {
   const { loggedIn } = useContext(ConnexionContext)
+  const htmlpres = parse(`${prod_pres}`)
   return (
     <div className='producteur'>
       <div className='producteur__image'>
@@ -26,7 +28,7 @@ const Producteur: React.FC<Props['data']> = ({
           {prod_type} <br />
           {/* {prod_loca} */}
         </span>
-        <p className='producteur__text-narrow'>{prod_pres}</p>
+        <p className='producteur__text-narrow'>{htmlpres}</p>
         {loggedIn && (
           <Link to={`/edit/producteurs/${prod_id}`} className='icon'>
             <BsFillPencilFill />

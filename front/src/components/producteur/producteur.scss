@@ -3,6 +3,25 @@
 
 .producteur{
 	background-color: $offwhite;
+    strong {
+      font-weight: bold;
+    }
+  em {
+    font-style: italic;
+  }
+      list-style: circle;
+  li {
+    text-indent: 3mm;
+  }
+  .ql-indent-2 {
+    text-indent: 6mm;
+  }
+  ul {
+    list-style: square;
+  }
+  ol {
+    list-style-type: decimal;
+  }
 }
 
 @media (max-width: $phone){
