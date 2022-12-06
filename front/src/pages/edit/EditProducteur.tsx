@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router'
 import ProducteurData from '../../types/types'
 import { toast } from 'react-toastify'
@@ -6,14 +6,12 @@ import 'react-toastify/dist/ReactToastify.css'
 import { useNavigate } from 'react-router-dom'
 import './editProducteur.scss'
 import axios from 'axios'
-import ReactQuill, { Quill } from "react-quill";
-import "react-quill/dist/quill.snow.css";
+import { Editor } from '../../components'
 
 const EditProducteur: React.FC = () => {
   const [loading, setLoading] = useState(true)
-  const navigate = useNavigate()
 
-  let reactQuillRef: ReactQuill | null = null;
+  const navigate = useNavigate()
 
   const { id } = useParams()
 
@@ -25,12 +23,14 @@ const EditProducteur: React.FC = () => {
     prod_type: '',
   })
 
+  const [editorState, setEditorState] = useState('')
+
   const getProducteur = async () => {
     try {
       const res = await fetch(`${process.env.REACT_APP_NODE_URL}/edit/producteurs/${id}`)
       const data = await res.json()
-      console.log(data)
       setProducteur(data)
+      setEditorState(`${data.prod_pres}`)
       setLoading(false)
     } catch (error) {
       console.log('there was an error')
@@ -48,13 +48,6 @@ const EditProducteur: React.FC = () => {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    const htmlQuill = reactQuillRef?.getEditorContents()
-    setProducteur?.({
-      ...producteur,
-      prod_pres: JSON.stringify(htmlQuill)
-    })
-    const url = `${process.env.REACT_APP_NODE_URL}/edit/producteurs/${id}`
-    console.log(url)
     await axios
       .post(
         `${process.env.REACT_APP_NODE_URL}/edit/producteurs/${id}`,
@@ -62,7 +55,7 @@ const EditProducteur: React.FC = () => {
           name: producteur.prod_name,
           type: producteur.prod_type,
           loca: producteur.prod_loca,
-          pres: producteur.prod_pres,
+          pres: editorState,
         },
         {
           headers: { Authorization: `Bearer ${localStorage.getItem('accessToken')}` },
@@ -76,13 +69,6 @@ const EditProducteur: React.FC = () => {
         console.log('erreur')
         console.log(err)
       })
-  }
-
-  const modules = {
-    toolbar: [
-      [{ 'header': [1, 2, 3] }],
-      ['bold', 'italic', 'underline', {'list': 'ordered'}, {'list': 'bullet'}, {'indent': '-1'}, {'indent': '+1'}],
-    ],
   }
 
   return (
@@ -120,12 +106,7 @@ const EditProducteur: React.FC = () => {
             })
           }
         />
-        <ReactQuill ref={(el) => {
-          reactQuillRef = el;
-        }} value={producteur.prod_pres} modules={modules} onChange={(value) => setProducteur?.({
-          ...producteur,
-          prod_pres: value
-        })} />
+        <Editor editorState={editorState} setEditorState={setEditorState} />
         <button type='submit'>valider la modification</button>
       </form>
     </div>

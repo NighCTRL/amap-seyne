@@ -4,7 +4,7 @@ import { BsFillPencilFill } from 'react-icons/bs'
 import { ConnexionContext } from '../../store/ConnexionContext'
 import './producteur.scss'
 import { Link } from 'react-router-dom'
-import parse from 'html-react-parser';
+import parse from 'html-react-parser'
 
 interface Props {
   data: ProducteurData
