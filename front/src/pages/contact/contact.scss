@@ -6,7 +6,7 @@
   min-height: 65vh;
   width: 100%;
   @include flex-center();
-  background-image: url(../../images/jardin.jpg);
+  background-image: url("../../images/jardin.webp");
   background-size: cover;
   background-position: center;
   .informations{
