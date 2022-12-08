@@ -7,3 +7,4 @@ front/public/*.pdf
 *.jpg
 *.jpeg
 back/insert-data.sql
+front/build
